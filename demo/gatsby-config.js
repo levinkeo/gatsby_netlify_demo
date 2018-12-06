@@ -1,6 +1,8 @@
+const env = require("dotenv").config();
+
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Gatsby + Netlify + HubSpot Demo',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -25,6 +27,12 @@ module.exports = {
         icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: 'gatsby-source-hubspot',
+      options: {
+        key: `${process.env.HUBSPOT_API_KEY}`
+      }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
